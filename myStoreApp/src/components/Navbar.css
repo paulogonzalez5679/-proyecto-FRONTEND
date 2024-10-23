@@ -1,0 +1,17 @@
+/* src/components/Navbar.css */
+.navbar {
+    background-color: white; /* Cambia el color según tu diseño */
+    border-top: 1px solid #ccc; /* Un poco de separación en la parte superior */
+    position: fixed; /* Fijo en la parte inferior */
+    bottom: 0; /* Asegúrate de que esté en la parte inferior */
+    left: 0;
+    right: 0;
+    z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      font-size: 14px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+    }
+  }
+  

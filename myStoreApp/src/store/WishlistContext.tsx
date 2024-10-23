@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 interface Product {
     id: number;
@@ -13,16 +13,9 @@ interface WishlistContextProps {
     removeFromWishlist: (id: number) => void;
 }
 
-// Crea el contexto
 const WishlistContext = createContext<WishlistContextProps | undefined>(undefined);
 
-// Define las propiedades del WishlistProvider
-interface WishlistProviderProps {
-    children: ReactNode; // Agrega la propiedad children
-}
-
-// Proveedor del contexto
-export const WishlistProvider: React.FC<WishlistProviderProps> = ({ children }) => {
+export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [wishlist, setWishlist] = useState<Product[]>([]);
 
     const addToWishlist = (product: Product) => {
@@ -42,7 +35,6 @@ export const WishlistProvider: React.FC<WishlistProviderProps> = ({ children }) 
     );
 };
 
-// Hook personalizado para usar el contexto
 export const useWishlist = () => {
     const context = useContext(WishlistContext);
     if (!context) {

@@ -12,7 +12,7 @@ export const getProductById = async (id: number) => {
     return response.data;
 };
 
-export const addToWishlist = async (wishlistItem: { userId: number; productId: number }) => {
+export const addToWishlist = async (wishlistItem: { userId: number; productId: number; product: any }) => {
     const response = await axios.post(`${API_URL}/wishlist`, wishlistItem);
     return response.data;
 };
@@ -24,4 +24,13 @@ export const getWishlist = async (userId: number) => {
 
 export const removeFromWishlist = async (id: number) => {
     await axios.delete(`${API_URL}/wishlist/${id}`);
+};
+
+export const getProductsByCategory = async (categoryId: number) => {
+    const response = await axios.get(`${API_URL}/products?categoryId=${categoryId}`);
+    return response.data; 
+};
+export const getCategoryById = async (categoryId: number) => {
+    const response = await axios.get(`${API_URL}/categoryID/${categoryId}`);
+    return response.data; 
 };
